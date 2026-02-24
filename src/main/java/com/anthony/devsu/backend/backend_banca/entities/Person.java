@@ -34,6 +34,7 @@ public class Person {
     private String genre;
  
     private int age;
+    @NotBlank(message = "El nombre es obligatorio")
     private String identify;
     private String address;
 

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.anthony.devsu.backend.backend_banca.dtos.request.AccountRequest;
+import com.anthony.devsu.backend.backend_banca.dtos.response.AccountResponse;
 import com.anthony.devsu.backend.backend_banca.entities.Account;
 import com.anthony.devsu.backend.backend_banca.services.AccountService;
 
@@ -24,9 +26,9 @@ public class AccountController {
     private AccountService accountService;
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody Account account) {
+    public ResponseEntity<?> create(@RequestBody AccountRequest account) {
         try {
-            Account created = accountService.save(account);
+            AccountResponse created = accountService.save(account);
             return ResponseEntity.status(HttpStatus.CREATED).body(created);
         } catch (RuntimeException e) {
             // Retorna un 400 Bad Request con el mensaje de "Usuario inactivo"
@@ -35,18 +37,25 @@ public class AccountController {
     }
 
     @GetMapping
-    public List<Account> getAll() {
+    public List<AccountResponse> getAll() {
         return accountService.findAll();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<AccountResponse> getById(@PathVariable Long id) {
+        return accountService.findById(id)
+                .map(ResponseEntity::ok)  
+                .orElse(ResponseEntity.notFound().build()); 
+    }
+
     @PutMapping("/{id}")
-    public ResponseEntity<Account> update(@PathVariable Long id, @RequestBody Account details) {
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody AccountRequest details) {
         try {
-            Account updatedAccount = accountService.update(id, details);
+            AccountResponse updatedAccount = accountService.update(id, details);
             return ResponseEntity.ok(updatedAccount);
         } catch (RuntimeException e) {
             // Retorna 404 si la cuenta no existe o 400 si hay un error de validación
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 }

@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 
 import com.anthony.devsu.backend.backend_banca.commons.TransaccionType;
 import com.anthony.devsu.backend.backend_banca.dtos.TransactionsReportDTO;
+import com.anthony.devsu.backend.backend_banca.dtos.TransactionsRequest;
 import com.anthony.devsu.backend.backend_banca.entities.Account;
 import com.anthony.devsu.backend.backend_banca.entities.Customer;
 import com.anthony.devsu.backend.backend_banca.entities.Transactions;
 import com.anthony.devsu.backend.backend_banca.exceptions.InsufficientBalanceException;
 import com.anthony.devsu.backend.backend_banca.repositories.AccountRepository;
 import com.anthony.devsu.backend.backend_banca.repositories.TransactionsRepository;
-import com.anthony.devsu.backend.backend_banca.requests.TransactionsRequest;
 
 import jakarta.transaction.Transactional;
 
@@ -47,13 +47,12 @@ public class TransactionsService {
 
         Transactions trans = this.setTransactionEntity(request, account);
         double nuevoSaldo = 0;
-        if(trans.getType().equals(TransaccionType.DEPOSITO)){
-             nuevoSaldo =account.getBalance() + trans.getValue();
-        }else{
-             nuevoSaldo = account.getBalance() - trans.getValue();
+        if (trans.getType().equals(TransaccionType.DEPOSITO)) {
+            nuevoSaldo = account.getBalance() + trans.getValue();
+        } else {
+            nuevoSaldo = account.getBalance() - trans.getValue();
         }
-       
-        
+
         if (nuevoSaldo < 0) {
             throw new InsufficientBalanceException("Saldo no disponible");
         }
@@ -66,7 +65,7 @@ public class TransactionsService {
         return movimientoRepo.save(trans);
     }
 
-    private Transactions setTransactionEntity(TransactionsRequest request, Account account){
+    private Transactions setTransactionEntity(TransactionsRequest request, Account account) {
         Transactions trans = new Transactions();
         trans.setAccount(account);
         trans.setDescription(request.getDescription());
@@ -92,7 +91,7 @@ public class TransactionsService {
             dto.setTipo(t.getAccount().getType());
             dto.setEstado(t.getAccount().getStatus());
             dto.setMovimiento(t.getValue());
-            dto.setSaldoDisponible(t.getBalance()); 
+            dto.setSaldoDisponible(t.getBalance());
             dto.setSaldoInicial(t.getBalance() + t.getValue());
             dto.setTipoTransaccion(t.getType());
             dto.setDescription(t.getDescription());

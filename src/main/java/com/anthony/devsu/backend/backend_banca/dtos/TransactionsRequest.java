@@ -1,4 +1,4 @@
-package com.anthony.devsu.backend.backend_banca.requests;
+package com.anthony.devsu.backend.backend_banca.dtos;
 
 import com.anthony.devsu.backend.backend_banca.commons.TransaccionType;
 

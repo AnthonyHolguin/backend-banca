@@ -12,7 +12,6 @@ public class CustomerTests {
     @Test
     @DisplayName("Debería crear un cliente y validar la herencia de Persona")
     void shouldCreateCustomerWithInheritedFields() {
-        // 1. Arrange: Instanciar el objeto y asignar valores
         Customer customer = new Customer();
         
         // Campos heredados de Person
@@ -21,11 +20,9 @@ public class CustomerTests {
         customer.setAge(25);
         customer.setAddress("Calle Principal 123");
         
-        // Campos propios de Customer (según imagen F1)
         customer.setPassword("secure123");
         customer.setStatus(true);
 
-        // 2. Act & 3. Assert: Verificar que los datos se mantienen correctamente
         assertAll("Validación de campos del Cliente",
             () -> assertEquals("Anthony", customer.getName(), "El nombre heredado no coincide"),
             () -> assertEquals("1234567890", customer.getIdentify(), "La identificación no coincide"),
@@ -40,7 +37,6 @@ public class CustomerTests {
         Customer customer = new Customer();
         Long expectedId = 5L;
         
-        // El método setId() viene de la clase Person
         customer.setId(expectedId);
         
         assertEquals(expectedId, customer.getId(), "El ID heredado debería ser accesible y correcto");
