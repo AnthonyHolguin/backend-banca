@@ -14,8 +14,10 @@ JUnit 5 & Mockito (Pruebas)
 
 Lombok (Productividad)
 
-🛠️ Ejecución con Docker
+Ejecución con Docker
 El proyecto incluye un archivo docker-compose.yml que levanta tanto la aplicación como la base de datos de forma automática.
+Bash
+docker-compose up --build
 
 Clonar el repositorio:
 
