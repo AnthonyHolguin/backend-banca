@@ -1,0 +1,448 @@
+{
+  "info": {
+    "_postman_id": "1cbab816-a512-4d74-9143-0785d242eef2",
+    "name": "banca",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "13508391"
+  },
+  "item": [
+    {
+      "name": "crear usuario",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Jose Lemá\",\r\n  \"genre\": \"M\",\r\n  \"age\": 30,\r\n  \"identify\": \"1722547852\",\r\n  \"address\": \"Otavalo sn y principal\",\r\n  \"phone\": \"098254785\",\r\n  \"password\": \"password1234\",\r\n  \"status\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/customers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "customers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "obtener usuario",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/customers/21",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "customers",
+            "21"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "crear usuario Marianela",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Marianela Montalvo\",\r\n  \"genre\": \"F\",\r\n  \"age\": 33,\r\n  \"identify\": \"1722547851\",\r\n  \"address\": \"Amazonas y NNUU\",\r\n  \"phone\": \"097548965\",\r\n  \"password\": \"password1233\",\r\n  \"status\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/customers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "customers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "usuario Juan Osorio",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Juan Osorio\",\r\n  \"genre\": \"M\",\r\n  \"age\": 32,\r\n  \"identify\": \"1722547853\",\r\n  \"address\": \"13 junio y Equinoccial\",\r\n  \"phone\": \"098874587\",\r\n  \"password\": \"password1236\",\r\n  \"status\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/customers",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "customers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear cuenta Jose Lema",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"number\": \"478758\",\r\n  \"type\": \"Ahorros\",\r\n  \"balance\": 2000,\r\n  \"status\": true,\r\n  \"customerIdentification\": \"1722547852\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/accounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "accounts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Actualizarcuenta Jose Lema 1",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"number\": \"478758\",\r\n  \"type\": \"Corriente\", \r\n  \"status\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/accounts/41",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "accounts",
+            "41"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear cuenta Jose Lema 2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"number\": \"585545\",\r\n  \"type\": \"Corriente\",\r\n  \"balance\": 1000,\r\n  \"status\": true,\r\n  \"customerIdentification\": \"1722547852\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/accounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "accounts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear cuenta M M 2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"number\": \"496825\",\r\n  \"type\": \"Ahorros\",\r\n  \"balance\": 540,\r\n  \"status\": true,\r\n  \"customerIdentification\": \"1722547851\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/accounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "accounts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear cuenta M M 1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"number\": \"225487\",\r\n  \"type\": \"Corriente\",\r\n  \"balance\": 100,\r\n  \"status\": true,\r\n  \"customerIdentification\": \"1722547851\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/accounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "accounts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Crear cuenta J O",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"number\": \"495878\",\r\n  \"type\": \"Ahorros\",\r\n  \"balance\": 0,\r\n  \"status\": true,\r\n  \"customerIdentification\": \"1722547853\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/accounts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "accounts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Hacer Movimiento 1",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"accountNumber\": \"478758\",\r\n  \"type\": \"Retiro\",\r\n  \"description\":\"Retiro de 575\",\r\n  \"value\": 575.0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/transactions",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "transactions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Hacer Movimiento 2",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"accountNumber\": \"225487\",\r\n  \"type\": \"Deposito\",\r\n  \"description\":\"Deposito de 600\",\r\n  \"value\": 600.0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/transactions",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "transactions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Hacer Movimiento 3",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"accountNumber\": \"495878\",\r\n  \"type\": \"Deposito\",\r\n  \"description\":\"Deposito de 150\",\r\n  \"value\": 150.0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/transactions",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "transactions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Hacer Movimiento 4",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"accountNumber\": \"496825\",\r\n  \"type\": \"Retiro\",\r\n  \"description\":\"Retiro de 540\",\r\n  \"value\": 540.0\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/transactions",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "transactions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "reporte",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/reports?customer=21&beginDate=2026-01-01&endDate=2026-02-28",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "reports"
+          ],
+          "query": [
+            {
+              "key": "customer",
+              "value": "21"
+            },
+            {
+              "key": "beginDate",
+              "value": "2026-01-01"
+            },
+            {
+              "key": "endDate",
+              "value": "2026-02-28"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "obtener usuario 1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/customers/22",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "customers",
+            "22"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
