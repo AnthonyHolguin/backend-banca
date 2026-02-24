@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.anthony.devsu.backend.backend_banca.commons.TransaccionType;
-import com.anthony.devsu.backend.backend_banca.dtos.TransactionsRequest;
+import com.anthony.devsu.backend.backend_banca.dtos.request.TransactionsRequest;
 import com.anthony.devsu.backend.backend_banca.dtos.response.AccountResponse;
 import com.anthony.devsu.backend.backend_banca.entities.Account;
 import com.anthony.devsu.backend.backend_banca.entities.Customer;

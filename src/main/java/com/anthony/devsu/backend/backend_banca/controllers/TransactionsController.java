@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.anthony.devsu.backend.backend_banca.dtos.TransactionsRequest;
+import com.anthony.devsu.backend.backend_banca.dtos.request.TransactionsRequest;
 import com.anthony.devsu.backend.backend_banca.exceptions.InsufficientBalanceException;
 import com.anthony.devsu.backend.backend_banca.services.TransactionsService;
 @RestController

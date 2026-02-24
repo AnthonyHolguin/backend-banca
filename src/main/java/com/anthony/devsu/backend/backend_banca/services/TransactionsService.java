@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.anthony.devsu.backend.backend_banca.commons.TransaccionType;
 import com.anthony.devsu.backend.backend_banca.dtos.TransactionsReportDTO;
-import com.anthony.devsu.backend.backend_banca.dtos.TransactionsRequest;
+import com.anthony.devsu.backend.backend_banca.dtos.request.TransactionsRequest;
 import com.anthony.devsu.backend.backend_banca.entities.Account;
 import com.anthony.devsu.backend.backend_banca.entities.Customer;
 import com.anthony.devsu.backend.backend_banca.entities.Transactions;
