@@ -33,19 +33,15 @@ public class Transactions {
 
     private LocalDateTime date;
 
-    @NotNull(message = "El tipo de transacción es obligatorio")
     @Enumerated(EnumType.STRING)    
     private TransaccionType type;
     
     private String description;
 
     @Column(columnDefinition = "DECIMAL(10,2)")
-    @DecimalMax(value = "15000.00", message = "El valor ha superado el límite 15000.00.")
-    
     private double value;
 
     @Column(columnDefinition = "DECIMAL(10,2)")
-    @DecimalMax(value = "999999.99", message = "El saldo ha superado el límite 999999.99.")
     private double balance;
 
     @ManyToOne(fetch = FetchType.LAZY)

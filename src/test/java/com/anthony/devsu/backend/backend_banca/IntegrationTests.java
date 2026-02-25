@@ -36,7 +36,7 @@ public class IntegrationTests {
         jose.setName("Jose Lema");
         jose.setGenre("M");
         jose.setAge(25);
-        jose.setIdentify("1234567883");
+        jose.setIdentify("1234567884");
         jose.setAddress("Otavalo sn y principal");
         jose.setPhone("098254785");
         jose.setPassword("12ssqs34");
@@ -52,7 +52,7 @@ public class IntegrationTests {
 
         // 2. Crear Cuenta para Jose (Saldo inicial 100)
         Account cuenta = new Account();
-        cuenta.setNumber("1234562222222");
+        cuenta.setNumber("12345622222222");
         cuenta.setType("Ahorros");
         cuenta.setBalance(100.0);
         cuenta.setStatus(true);
@@ -105,7 +105,7 @@ public class IntegrationTests {
         jose.setName("Marianela Montalvo");
         jose.setGenre("F");
         jose.setAge(25);
-        jose.setIdentify("1234567801");
+        jose.setIdentify("1234567823");
         jose.setAddress("Amazonas y NNUU");
         jose.setPhone("097548965");
         jose.setPassword("123453223");
@@ -121,7 +121,7 @@ public class IntegrationTests {
 
         // 2. Crear Cuenta para Jose (Saldo inicial 100)
         Account cuenta = new Account();
-        cuenta.setNumber("1234567");
+        cuenta.setNumber("1234562");
         cuenta.setType("Ahorros");
         cuenta.setBalance(100.0);
         cuenta.setStatus(true);

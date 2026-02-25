@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import com.anthony.devsu.backend.backend_banca.commons.TransaccionType;
 import com.anthony.devsu.backend.backend_banca.dtos.TransactionsReportDTO;
 import com.anthony.devsu.backend.backend_banca.dtos.request.TransactionsRequest;
+import com.anthony.devsu.backend.backend_banca.dtos.response.AccountResponse;
+import com.anthony.devsu.backend.backend_banca.dtos.response.TransactionsResponse;
 import com.anthony.devsu.backend.backend_banca.entities.Account;
 import com.anthony.devsu.backend.backend_banca.entities.Customer;
 import com.anthony.devsu.backend.backend_banca.entities.Transactions;
@@ -28,7 +30,7 @@ public class TransactionsService {
     private AccountRepository accountRepo;
 
     @Transactional
-    public Transactions registrarMovimiento(TransactionsRequest request) {
+    public TransactionsResponse registrarMovimiento(TransactionsRequest request) {
         Account account = accountRepo.findByNumber(request.getAccountNumber())
                 .orElseThrow(() -> new RuntimeException("Cuenta no encontrada"));
 
@@ -62,7 +64,7 @@ public class TransactionsService {
 
         trans.setBalance(nuevoSaldo);
         trans.setDate(LocalDateTime.now());
-        return movimientoRepo.save(trans);
+        return this.getResponse(movimientoRepo.save(trans));
     }
 
     private Transactions setTransactionEntity(TransactionsRequest request, Account account) {
@@ -97,5 +99,31 @@ public class TransactionsService {
             dto.setDescription(t.getDescription());
             return dto;
         }).collect(Collectors.toList());
+    }
+
+    public TransactionsResponse getResponse(Transactions transaction) {
+        TransactionsResponse response = new TransactionsResponse();
+ 
+        response.setId(transaction.getId());
+        response.setDate(transaction.getDate());
+        response.setType(transaction.getType());
+        response.setDescription(transaction.getDescription());
+        response.setValue(transaction.getValue());
+        response.setBalance(transaction.getBalance());
+ 
+        if (transaction.getAccount() != null) {
+            AccountResponse accountRes = new AccountResponse();
+            accountRes.setId(transaction.getAccount().getId());
+            accountRes.setNumber(transaction.getAccount().getNumber());
+            accountRes.setType(transaction.getAccount().getType());
+            accountRes.setStatus(transaction.getAccount().getStatus());
+            if(transaction.getAccount().getCustomer() != null ){ 
+                accountRes.setCustomerIdentification(transaction.getAccount().getCustomer().getIdentify());
+                accountRes.setCustomerName(transaction.getAccount().getCustomer().getName());
+            }
+            response.setAccount(accountRes);
+        }
+
+        return response;
     }
 }

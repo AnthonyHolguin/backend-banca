@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.anthony.devsu.backend.backend_banca.dtos.request.CustomerRequest;
+import com.anthony.devsu.backend.backend_banca.dtos.response.CustomerResponse;
 import com.anthony.devsu.backend.backend_banca.entities.Customer;
 import com.anthony.devsu.backend.backend_banca.services.CustomerService;
 
@@ -24,14 +26,12 @@ public class CustomerController {
     private CustomerService customerService;
 
     @GetMapping("/{id}")
-    public Customer get(@PathVariable Long id) {
+    public CustomerResponse get(@PathVariable Long id) {
         return customerService.findById(id).orElse(null);
     }
 
-   
-
     @PutMapping
-    public Customer update(@RequestBody Customer c) {
+    public CustomerResponse update(@RequestBody CustomerRequest c) {
         return customerService.save(c);
     }
 
@@ -41,8 +41,16 @@ public class CustomerController {
     }
 
     @PostMapping
-    public ResponseEntity<?> create(@Valid @RequestBody Customer customer) {
+    public ResponseEntity<?> create(@Valid @RequestBody CustomerRequest customer) {
         return ResponseEntity.status(HttpStatus.CREATED).body(customerService.save(customer));
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<CustomerResponse> update(
+            @PathVariable Long id,
+            @Valid @RequestBody CustomerRequest request) { 
+        CustomerResponse updatedCustomer = customerService.update(id, request);
+        return ResponseEntity.ok(updatedCustomer);
     }
 
 }

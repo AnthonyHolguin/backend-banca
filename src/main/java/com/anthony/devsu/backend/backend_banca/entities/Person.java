@@ -26,19 +26,16 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "El nombre es obligatorio")
-    @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$", message = "El nombre solo debe contener letras") 
     private String name;
-
-    @Size(max = 1, message = "El género debe ser de máximo 1 caracter")
+ 
     private String genre;
  
-    private int age;
-    @NotBlank(message = "El nombre es obligatorio")
+    private int age; 
+
     private String identify;
+
     private String address;
 
-    @Pattern(regexp = "^[0-9]+$", message = "El teléfono solo debe contener números")
     private String phone;
 
 

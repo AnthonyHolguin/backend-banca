@@ -15,8 +15,7 @@ import lombok.Setter;
 @Setter
 public class Customer extends Person {
 
-    @NotBlank(message = "La contraseña es obligatoria")
-    @Size(min = 8, max = 64, message = "La contraseña debe tener entre 8 y 64 caracteres")
+  
     private String password; 
     
     private Boolean status;

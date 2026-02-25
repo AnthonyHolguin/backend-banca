@@ -27,17 +27,14 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "El número de cuenta es obligatorio")
-    @Pattern(regexp = "^[0-9]+$", message = "El número de cuenta solo debe contener números")
+
     @Column(unique = true, nullable = false)
     private String number;
 
-    @NotBlank(message = "El tipo de cuenta es obligatorio") 
-    @Pattern(regexp = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$", message = "El tipo de cuenta solo debe contener letras") 
+
     private String type;
 
     @Column(columnDefinition = "DECIMAL(10,2)")
-    @DecimalMax(value = "999999.99", message = "El saldo ha superado el límite")
     private double balance; 
 
     private Boolean status;
